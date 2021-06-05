@@ -17,12 +17,19 @@
 
 
 \maketitle
+\section{Introduction}
+As I am a student from last year, I included one interactive map and one analogue map.
+All code and output can be found on this \href{https://github.com/RobertvdV/GRS60312_RemoteSensingAndGISIntergration_IDV_Portfolio}{GitHub}.
+As I do not own the data, the data for both maps is not provided.
+For the interactive visualization I used a Folium map that I made for a master student Forest \& Nature Conservation. 
+For the static map I made some new visualizations with data from the ACT course. 
+These data contain LinearRings which I think are very interesting.
 
-\section{Interactive Map I}
+\section{Digital Visualization}
 \textbf{Course Name \& Code.}
 This interactive map was made for a master student that had trouble with Python Folium maps. 
 So it has no specific course name and course code. 
-It was for a master thesis internship for the study Forest and Nature Conservation.
+It was for a master internship for the study Forest and Nature Conservation.
 \\
 
 \noindent
@@ -61,7 +68,7 @@ An example of a part of the data can be found in Figure \ref{fig:csvfile}.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=.4]{csv.png}
+    \includegraphics[width=\textwidth, height=\textheight, keepaspectratio]{csv.png}
     \caption{Example of the data}
     \label{fig:csvfile}
 \end{figure}
@@ -80,19 +87,82 @@ The Jupyter Notebook (data not provided) containing all the code (including the 
 \noindent
 \textbf{Implementation.}
 The final result can be saved as an HMTL file. This file can be opened on any computer/tablet/phone that has a browser.
-The final result can be downloaded via this \href{https://github.com/RobertvdV/GRS60312_RemoteSensingAndGISIntergration_IDV_Portfolio/blob/master/data/processed/HeathMapPerDag.html}{link}.
-\begin{figure}[h!]
+The final result can be downloaded via this \href{https://github.com/RobertvdV/GRS60312_RemoteSensingAndGISIntergration_IDV_Portfolio/blob/master/data/processed/HeathMapPerDag.html}{link} and an example of the final map can be found in Figure \ref{fig:finalmap}.
+\\
+\begin{figure}[ht]
     \centering
-    \includegraphics[scale=.35]{finalmap.png}
+    \includegraphics[width=\textwidth, height=\textheight, keepaspectratio]{finalmap.png}
     \caption{Example of the final map}
-    \label{fig:finmap}
+    \label{fig:finalmap}
 \end{figure}
 
 \noindent
 \textbf{Reflection on the Result.}
 As the \textbf{People} were all very satisfied, I think the map served the \textbf{Purpose} very well. 
 
+\newpage
+\section{Analogue Visualization}
+\textbf{Course Name \& Code.}
+This is a analogue map made for the Remote Sensing and GIS Integration Course (603012).
+\\
 
+\noindent
+\textbf{Description of the Application.}
+The map is part of the data exploration of the ACT course. 
+The data for the ACT project consists of LinearRings. 
+These are very interesting, that is why I included these in the portfolio.
+LinearRing data is similar to raster data but is at the same time very different, but more on this later.
+\\
+
+\noindent
+\textbf{Description \& Requirements of Users.}
+There were no hard requirements.
+My ACT group and the Commissioner were the users of the map. 
+The main requirements was to explore the data and make sure we understood the wishes of our commissioner correctly.
+\\
+
+\noindent
+\textbf{Purpose of your visualization.}
+The purpose of the visualization was to see if we could use and understand the datasets that were provided by the commissioner of the ACT course.
+\\
+
+\noindent
+\textbf{Motivation for choice of visualization type.}
+As this map was made as part of data exploration a static map was fine.
+\\
+
+\noindent
+\textbf{Data sets.}
+The data sets are gml files (xml.xsd).
+The data is divided into supply and demand.
+A demand data sets contains data about a nitrogen company in need of Nitrogen. 
+A supply data set contains data about a nitrogen company that has a nitrogen surplus.
+All data consists of \href{https://shapely.readthedocs.io/en/stable/manual.html#linearrings}{LinearRings} (click on the link for more information).
+The nice thing about a LinearRing is that no matter in which direction you go, the distance is always the same.
+Each LinearRing contains an area of 1 ha and contains the amount of NH3 (nitrogen, surplus in case of supply and nitrogen needed in case of demand).
+\\
+
+\noindent
+\textbf{Data Processing.}
+I used a Python script to process the gml file and read it into a geopandas data frame. 
+This part of the script is not provided.
+In this Notebook the data is read as a Python pickle. 
+First, I started with two data sets: Supply and demand.
+I joined these datasets based on locations to see where the supply and demand overlapped and created a new data frame out of this.
+Second, I created a new attibute for all the LinearRings that contain the nitrogen surplus (in case demand < supply) or a negative value (in case demand > supply).
+\\
+
+\noindent
+\textbf{Implementation.}
+
+
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth, height=\textheight, keepaspectratio]{Nitro.jpg}
+    \caption{Nitrogen surplus visualized with LinearRings.}
+    \label{fig:finalmap}
+\end{figure}
 
 \end{document}
 

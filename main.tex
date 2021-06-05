@@ -154,14 +154,16 @@ Second, I created a new attibute for all the LinearRings that contain the nitrog
 
 \noindent
 \textbf{Implementation.}
-
+For the creation of the map Python was used, including several libraries like geopandas, shapely and contextily. A list of all libraries can be found in the \href{https://github.com/RobertvdV/GRS60312_RemoteSensingAndGISIntergration_IDV_Portfolio/blob/master/notebooks/1.0-LinearRingMapCreator.ipynb}{Notebook}.
+The final map can be found in Figure \ref{fig:nitrogenmap}.
+A scale bar and north arrows were not added as the RD (meters) coordinates were plotted on the x and y axis.
 
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth, height=\textheight, keepaspectratio]{Nitro.jpg}
     \caption{Nitrogen surplus visualized with LinearRings.}
-    \label{fig:finalmap}
+    \label{fig:nitrogenmap}
 \end{figure}
 
 \end{document}
